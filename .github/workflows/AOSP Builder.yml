@@ -51,7 +51,7 @@ jobs:
             export KBUILD_BUILD_HOST=Latitude-5420
             export KBUILD_COMPILER_STRING="$$CLANG_PATH/clang"
             make O=out ARCH=arm64 sweet_defconfig 
-            make -j$(nproc --all) O=out ARCH=arm64 LLVM=1 LLVM_IAS=1 CC=clang \
+               make -j$(nproc --all) O=out ARCH=arm64 LLVM=1 LLVM_IAS=1 CC=clang KCFLAGS="-Wno-error" \
               CLANG_TRIPLE=$CLANG_PATH/aarch64-linux-gnu- \
               CROSS_COMPILE=$GCC64_PATH/bin/aarch64-elf- \
               CROSS_COMPILE_ARM32=$GCC32_PATH/bin/arm-eabi-         
