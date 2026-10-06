@@ -47,8 +47,8 @@ jobs:
       run: |
             export ARCH=arm64
             export PATH="$CLANG_PATH/bin:$GCC64_PATH/bin:$GCC32_PATH/bin:$PATH"
-            export KBUILD_BUILD_USER=user-tobrut
-            export KBUILD_BUILD_HOST=exotic-host
+            export KBUILD_BUILD_USER=Adit
+            export KBUILD_BUILD_HOST=Latitude-5420
             export KBUILD_COMPILER_STRING="$$CLANG_PATH/clang"
             make O=out ARCH=arm64 sweet_defconfig 
             make -j$(nproc --all) O=out ARCH=arm64 LLVM=1 LLVM_IAS=1 CC=clang \
