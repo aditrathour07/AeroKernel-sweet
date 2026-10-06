@@ -65,7 +65,7 @@ jobs:
 
     - name: Clone Anykernel3
       run: |
-            git clone --depth=1 https://github.com/Mr-Morat/anykernel3 -b main AnyKernel3 
+            git clone --depth=1 https://github.com/Mr-Morat/anykernel3 
             cp out/arch/arm64/boot/Image.gz AnyKernel3/Image.gz
             cp out/arch/arm64/boot/dtbo.img AnyKernel3/dtbo.img
             cp out/arch/arm64/boot/dtb.img AnyKernel3/dtb.img
