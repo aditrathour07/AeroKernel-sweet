@@ -23,7 +23,7 @@ jobs:
     - name: Install Dependencies
       run: |
             sudo apt update -y
-            sudo apt install bc cpio flex bison aptitude git python-is-python3 tar aria2 perl wget curl lz4 -y
+            sudo apt install bc cpio flex bison aptitude git python-is-python3 tar aria2 perl wget curl lz4 zip unzip -y
             sudo apt install libssl-dev -y
 
     - name: Clone Toolchains
@@ -65,7 +65,9 @@ jobs:
 
     - name: Clone Anykernel3
       run: |
-            git clone --depth=1 https://github.com/Mr-Morat/anykernel3 
+            git clone --depth=1 https://github.com/Mr-Morat/anykernel3 AnyKernel3 
+            ls -lah out/arch/arm64/boot/ 2>/dev/null || ls -lah arch/arm64/boot/
+            find out -name "Image*" -o -name "*.img" 2>/dev/null | head -20
             cp out/arch/arm64/boot/Image.gz AnyKernel3/Image.gz
             cp out/arch/arm64/boot/dtbo.img AnyKernel3/dtbo.img
             cp out/arch/arm64/boot/dtb.img AnyKernel3/dtb.img
