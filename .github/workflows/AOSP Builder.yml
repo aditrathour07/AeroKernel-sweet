@@ -65,14 +65,13 @@ jobs:
 
     - name: Clone Anykernel3
       run: |
-            git clone --depth=1 https://github.com/Mr-Morat/anykernel3 AnyKernel3 
-            ls -lah out/arch/arm64/boot/ 2>/dev/null || ls -lah arch/arm64/boot/
-            find out -name "Image*" -o -name "*.img" 2>/dev/null | head -20
+            git clone --depth=1 https://github.com/Mr-Morat/anykernel3 AnyKernel3
+            sed -i 's/Tobrut Exotic/AeroKernel/g; s/The Power of Morat Engine/Forged by Adit/g; s/build by @MasMasterElur/build by @aditrathour07/g' AnyKernel3/anykernel.sh
             cp out/arch/arm64/boot/Image.gz AnyKernel3/Image.gz
             cp out/arch/arm64/boot/dtbo.img AnyKernel3/dtbo.img
             cp out/arch/arm64/boot/dtb.img AnyKernel3/dtb.img
             cd AnyKernel3
-            zip -r "../AeroKernel-AOSP-${{ env.BUILD_TIME }}.zip" *
+            zip -r "../AeroKernel-v1.1-AOSP-sweet.zip" *
 
     - name: Upload Flashable zip
       uses: actions/upload-artifact@v4
@@ -80,10 +79,10 @@ jobs:
         name: AeroKernel-AOSP-${{ env.BUILD_TIME }}
         path: AnyKernel3/*
 
-    - name: Send to Telegram
-      run: |
-          curl -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendDocument" \
-          -F chat_id=${{ secrets.TELEGRAM_CHAT_ID }} \
-          -F message_thread_id=120979 \
-          -F document=@"AeroKernel-AOSP-${{ env.BUILD_TIME }}.zip" \
-          -F caption=" Last Version is Cumming "
+  #  - name: Send to Telegram
+  #    run: |
+   #       curl -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendDocument" \
+    #      -F chat_id=${{ secrets.TELEGRAM_CHAT_ID }} \
+     #     -F message_thread_id=120979 \
+      #    -F document=@"AeroKernel-AOSP-${{ env.BUILD_TIME }}.zip" \
+       #   -F caption=" Last Version is Cumming "
