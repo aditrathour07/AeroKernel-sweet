@@ -39,9 +39,9 @@ jobs:
             echo "GCC64_PATH=$GITHUB_WORKSPACE/gcc64" >> $GITHUB_ENV
             echo "GCC32_PATH=$GITHUB_WORKSPACE/gcc32" >> $GITHUB_ENV
 
-    - name: Clone kernelSU-Next
-      run: |
-            curl -LSs "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/next/kernel/setup.sh" | bash -s next
+   # - name: Clone kernelSU-Next
+  #  run: |
+   #         curl -LSs "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/next/kernel/setup.sh" | bash -s next
 
     - name: Build Kernel
       run: |
